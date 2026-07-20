@@ -1,0 +1,39 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / IntelliJ
+.idea/
+
+# VS Code
+.vscode/
+
+# .NET
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.nuget.props
+*.nuget.targets
+
+# Local environment / secrets
+appsettings.*.local.json
+appsettings.Local.json
+*.env
+.env
+.env.*
+secrets.json
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# OS files
+.DS_Store
+Thumbs.db
