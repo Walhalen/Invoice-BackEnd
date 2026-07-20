@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet build *)",
+      "Bash(timeout 15 dotnet run)",
+      "Bash(echo \"EXIT CODE: $?\")"
+    ]
+  }
+}
