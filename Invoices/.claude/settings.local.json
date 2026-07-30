@@ -3,7 +3,10 @@
     "allow": [
       "Bash(dotnet build *)",
       "Bash(timeout 15 dotnet run)",
-      "Bash(echo \"EXIT CODE: $?\")"
+      "Bash(echo \"EXIT CODE: $?\")",
+      "Bash(dotnet user-secrets *)",
+      "Bash(rm -rf Domain/Migrations)",
+      "Bash(dotnet ef *)"
     ]
   }
 }

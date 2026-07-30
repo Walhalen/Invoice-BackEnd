@@ -13,7 +13,6 @@
         "packagesPath": "C:\\Users\\a1bg537719\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\a1bg537719\\Documents\\Invoice\\Invoice-BackEnd\\Invoices\\Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\a1bg537719\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
@@ -43,6 +42,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -72,7 +77,6 @@
         "packagesPath": "C:\\Users\\a1bg537719\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\a1bg537719\\Documents\\Invoice\\Invoice-BackEnd\\Invoices\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\a1bg537719\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
@@ -107,6 +111,12 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
