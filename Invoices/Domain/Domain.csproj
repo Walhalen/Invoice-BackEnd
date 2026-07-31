@@ -10,4 +10,13 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Features\Suppliers\DtoS\" />
+      <Folder Include="Features\Suppliers\Handlers\" />
+      <Folder Include="Features\Suppliers\Services\" />
+      <Folder Include="Features\IncomingInvoices\DtoS\" />
+      <Folder Include="Features\IncomingInvoices\Handlers\" />
+      <Folder Include="Features\IncomingInvoices\Services\" />
+    </ItemGroup>
+
 </Project>

@@ -9,4 +9,6 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Invoice> Invoices => Set<Invoice>();
+    public DbSet<InvoiceItem> InvoiceItems => Set<InvoiceItem>();
+    public DbSet<Supplier> Suppliers => Set<Supplier>();
 }
