@@ -1,3 +1,4 @@
+using Domain.Features.Products.Entity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Domain;
@@ -11,4 +12,7 @@ public class AppDbContext : DbContext
     public DbSet<Invoice> Invoices => Set<Invoice>();
     public DbSet<InvoiceItem> InvoiceItems => Set<InvoiceItem>();
     public DbSet<Supplier> Suppliers => Set<Supplier>();
+    public DbSet<Product> Products  => Set<Product>();
+    public DbSet<StockMovement> StockMovements => Set<StockMovement>();
+    
 }

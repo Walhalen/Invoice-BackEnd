@@ -11,6 +11,15 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Features\InvoiceItems\DtoS\" />
+      <Folder Include="Features\InvoiceItems\Handlers\" />
+      <Folder Include="Features\InvoiceItems\Services\" />
+      <Folder Include="Features\Products\DtoS\" />
+      <Folder Include="Features\Products\Handlers\" />
+      <Folder Include="Features\Products\Services\" />
+      <Folder Include="Features\StockMovement\DtoS\" />
+      <Folder Include="Features\StockMovement\Handlers\" />
+      <Folder Include="Features\StockMovement\Services\" />
       <Folder Include="Features\Suppliers\DtoS\" />
       <Folder Include="Features\Suppliers\Handlers\" />
       <Folder Include="Features\Suppliers\Services\" />
