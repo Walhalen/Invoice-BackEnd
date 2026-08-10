@@ -11,6 +11,8 @@ namespace Domain.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.Sql("DELETE FROM [Invoices];");
+
             migrationBuilder.DropColumn(
                 name: "Amount",
                 table: "Invoices");

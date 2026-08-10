@@ -1,6 +1,10 @@
 using Domain;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebAPI.Handlers.GetHandlers;
+using WebAPI.Handlers.PostHandlers;
+
 
 namespace WebAPI.Controllers;
 
@@ -9,10 +13,12 @@ namespace WebAPI.Controllers;
 public class InvoicesController : ControllerBase
 {
     private readonly AppDbContext _db;
+    private readonly IMediator _mediator;
 
-    public InvoicesController(AppDbContext db)
+    public InvoicesController(AppDbContext db, IMediator mediator)
     {
         _db = db;
+        _mediator = mediator;
     }
 
     [HttpGet]
@@ -24,7 +30,7 @@ public class InvoicesController : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<ActionResult<Invoice>> Get(int id)
     {
-        var invoice = await _db.Invoices.FindAsync(id);
+        var invoice = await _mediator.Send(new GetInvoiceByIdRequest(id));
         if (invoice is null)
         {
             return NotFound();
@@ -36,8 +42,7 @@ public class InvoicesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Invoice>> Post(Invoice invoice)
     {
-        _db.Invoices.Add(invoice);
-        await _db.SaveChangesAsync();
-        return CreatedAtAction(nameof(Get), new { id = invoice.Id }, invoice);
+        var created = await _mediator.Send(new PostInvoiceRequest(invoice));
+        return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
     }
 }

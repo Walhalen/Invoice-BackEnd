@@ -177,3 +177,5 @@ C:\Users\a1bg537719\Documents\Invoice\Invoice-BackEnd\Invoices\WebAPI\bin\Debug\
 C:\Users\a1bg537719\Documents\Invoice\Invoice-BackEnd\Invoices\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\a1bg537719\Documents\Invoice\Invoice-BackEnd\Invoices\WebAPI\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\a1bg537719\Documents\Invoice\Invoice-BackEnd\Invoices\WebAPI\obj\Debug\net8.0\WebAPI.sourcelink.json
+C:\Users\a1bg537719\Documents\Invoice\Invoice-BackEnd\Invoices\WebAPI\bin\Debug\net8.0\MediatR.dll
+C:\Users\a1bg537719\Documents\Invoice\Invoice-BackEnd\Invoices\WebAPI\bin\Debug\net8.0\MediatR.Contracts.dll
