@@ -1,6 +1,9 @@
+using System.Text;
 using Domain;
 using Domain.Features.IncomingInvoices;
 using Microsoft.EntityFrameworkCore;
+
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
 var builder = WebApplication.CreateBuilder(args);
 

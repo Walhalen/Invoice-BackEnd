@@ -1,4 +1,6 @@
+using System.Text;
 using Domain;
+using Domain.Features.IncomingInvoices.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,7 +31,7 @@ public class InvoicesController : ControllerBase
     }
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<Invoice>> Get(int id)
+    public async Task<ActionResult<InvoiceDto>> Get(int id)
     {
         var invoice = await _mediator.Send(new GetInvoiceByIdRequest(id));
         if (invoice is null)
@@ -43,7 +45,8 @@ public class InvoicesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<bool>> Post(IFormFile xml)
     {
-        using var reader = new StreamReader(xml.OpenReadStream());
+        // The supplier's VFP export has no <?xml encoding=...?> declaration but is actually Windows-1251.
+        using var reader = new StreamReader(xml.OpenReadStream(), Encoding.GetEncoding(1251));
         var invoiceXml = await reader.ReadToEndAsync();
 
         var created = await _mediator.Send(new PostInvoiceRequest(invoiceXml));

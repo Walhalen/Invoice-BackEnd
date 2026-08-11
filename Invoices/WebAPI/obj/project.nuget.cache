@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Kbbhu1U+0Do=",
+  "dgSpecHash": "wqXhwh1n6uo=",
   "success": true,
   "projectFilePath": "C:\\Users\\a1bg537719\\Documents\\Invoice\\Invoice-BackEnd\\Invoices\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
@@ -81,7 +81,7 @@
     "C:\\Users\\a1bg537719\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
     "C:\\Users\\a1bg537719\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\a1bg537719\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
-    "C:\\Users\\a1bg537719\\.nuget\\packages\\system.text.encoding.codepages\\6.0.0\\system.text.encoding.codepages.6.0.0.nupkg.sha512",
+    "C:\\Users\\a1bg537719\\.nuget\\packages\\system.text.encoding.codepages\\8.0.0\\system.text.encoding.codepages.8.0.0.nupkg.sha512",
     "C:\\Users\\a1bg537719\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
     "C:\\Users\\a1bg537719\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
     "C:\\Users\\a1bg537719\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512",
