@@ -2,6 +2,7 @@ using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebAPI.Handlers.DeleteHandlers;
 using WebAPI.Handlers.GetHandlers;
 using WebAPI.Handlers.PostHandlers;
 
@@ -40,9 +41,24 @@ public class InvoicesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Invoice>> Post(Invoice invoice)
+    public async Task<ActionResult<bool>> Post(IFormFile xml)
     {
-        var created = await _mediator.Send(new PostInvoiceRequest(invoice));
-        return CreatedAtAction(nameof(Get), new { id = created.Id }, created);
+        using var reader = new StreamReader(xml.OpenReadStream());
+        var invoiceXml = await reader.ReadToEndAsync();
+
+        var created = await _mediator.Send(new PostInvoiceRequest(invoiceXml));
+        return true;
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var deleted = await _mediator.Send(new DeleteInvoiceRequest(id));
+        if (!deleted)
+        {
+            return NotFound();
+        }
+
+        return NoContent();
     }
 }

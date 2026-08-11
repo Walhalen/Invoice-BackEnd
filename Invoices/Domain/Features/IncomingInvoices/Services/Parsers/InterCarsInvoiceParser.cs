@@ -5,6 +5,9 @@ namespace Domain.Features.IncomingInvoices.Services;
 
 public class InterCarsInvoiceParser : IInvoiceParser
 {
+    public string SupplierCode => "INTERCARS";
+    public string SupplierName => "Inter Cars";
+
     public bool CanParse(string invoiceXml)
     {
         try

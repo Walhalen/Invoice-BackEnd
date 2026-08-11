@@ -13,6 +13,7 @@
         "packagesPath": "C:\\Users\\a1bg537719\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\a1bg537719\\Documents\\Invoice\\Invoice-BackEnd\\Invoices\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "UsingMicrosoftNETSdk": false,
         "configFilePaths": [
           "C:\\Users\\a1bg537719\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
