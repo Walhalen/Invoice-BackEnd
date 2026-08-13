@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Features.Products.Entity;
 
 namespace Domain;
 
@@ -9,6 +10,9 @@ public class InvoiceItem
 
     public int InvoiceId { get; set; }
     public Invoice? Invoice { get; set; }
+
+    public int? ProductId { get; set; }
+    public Product? Product { get; set; }
 
     public int LineNumber { get; set; }       
     public string ProductCode { get; set; } = string.Empty; 

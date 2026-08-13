@@ -12,7 +12,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\InvoiceItems\Handlers\" />
       <Folder Include="Features\InvoiceItems\Services\" />
       <Folder Include="Features\Products\DtoS\" />
       <Folder Include="Features\Products\Handlers\" />
