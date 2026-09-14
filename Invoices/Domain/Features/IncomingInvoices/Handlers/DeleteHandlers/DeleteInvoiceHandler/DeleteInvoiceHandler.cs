@@ -25,6 +25,16 @@ public class DeleteInvoiceHandler : IRequestHandler<DeleteInvoiceRequest, bool>
             return false;
         }
 
+        var itemIds = invoice.Items.Select(item => item.Id).ToList();
+        var priorMovements = await _db.StockMovements
+            .Where(m => m.InvoiceItemId != null && itemIds.Contains(m.InvoiceItemId.Value))
+            .ToListAsync(cancellationToken);
+
+        foreach (var movement in priorMovements)
+        {
+            movement.InvoiceItemId = null;
+        }
+
         foreach (var item in invoice.Items)
         {
             if (item.Product is not null)
@@ -35,7 +45,7 @@ public class DeleteInvoiceHandler : IRequestHandler<DeleteInvoiceRequest, bool>
                 _db.StockMovements.Add(new StockMovement
                 {
                     Product = item.Product,
-                    InvoiceItem = item,
+                    InvoiceItem = null,
                     QuantityChange = 0 - item.Quantity,
                     Reason = StockMovementReason.WriteOff,
                     MovementDate = item.Product.UpdatedAt,

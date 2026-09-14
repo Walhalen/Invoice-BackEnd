@@ -2,6 +2,7 @@ using System.Text;
 using Domain;
 using Domain.Features.IncomingInvoices.Dtos;
 using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Handlers.DeleteHandlers;
@@ -25,9 +26,21 @@ public class InvoicesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Invoice>>> Get()
+    public async Task<ActionResult<IEnumerable<InvoiceListItemDto>>> Get()
     {
-        return await _db.Invoices.ToListAsync();
+        return await _db.Invoices
+            .Select(invoice => new InvoiceListItemDto(
+                invoice.Id,
+                invoice.Supplier != null ? invoice.Supplier.Name : string.Empty,
+                invoice.Number,
+                invoice.IssueDate,
+                invoice.DueDate,
+                invoice.NetAmount,
+                invoice.GrossAmount,
+                invoice.VatAmount,
+                invoice.OutstandingAmount,
+                invoice.PaidAmount))
+            .ToListAsync();
     }
 
     [HttpGet("{id:int}")]
@@ -62,6 +75,6 @@ public class InvoicesController : ControllerBase
             return NotFound();
         }
 
-        return NoContent();
+        return Ok(true); 
     }
-}
+}   

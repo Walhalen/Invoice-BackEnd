@@ -1,4 +1,5 @@
 using System.Text;
+using Anthropic;
 using Domain;
 using Domain.Features.IncomingInvoices;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,22 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Pro
 
 builder.Services.AddIncomingInvoiceParsers();
 
+builder.Services.AddSingleton(_ => new AnthropicClient
+{
+    ApiKey = builder.Configuration["Anthropic:ApiKey"],
+});
+
+const string AllowAllCorsPolicy = "AllowAll";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(AllowAllCorsPolicy, policy =>
+    {
+        policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -33,6 +50,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(AllowAllCorsPolicy);
 
 app.UseAuthorization();
 

@@ -69,7 +69,7 @@ namespace Domain.Migrations
 
                     b.HasIndex("SupplierId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Invoice", b =>
@@ -138,7 +138,7 @@ namespace Domain.Migrations
 
                     b.HasIndex("SupplierId");
 
-                    b.ToTable("Invoices");
+                    b.ToTable("Invoices", (string)null);
                 });
 
             modelBuilder.Entity("Domain.InvoiceItem", b =>
@@ -205,7 +205,7 @@ namespace Domain.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("InvoiceItems");
+                    b.ToTable("InvoiceItems", (string)null);
                 });
 
             modelBuilder.Entity("Domain.StockMovement", b =>
@@ -246,7 +246,7 @@ namespace Domain.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("StockMovements");
+                    b.ToTable("StockMovements", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Supplier", b =>
@@ -285,7 +285,7 @@ namespace Domain.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Suppliers");
+                    b.ToTable("Suppliers", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Features.Products.Entity.Product", b =>
